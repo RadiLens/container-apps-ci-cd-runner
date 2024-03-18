@@ -7,7 +7,10 @@ RUN apt-get update && apt-get install -y curl jq zip unzip && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-COPY github-actions-runner/entrypoint.sh ./entrypoint.sh
+# install azure cli
+RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
+
+COPY github-actions-runner-azure-cli/entrypoint.sh ./entrypoint.sh
 RUN chmod +x ./entrypoint.sh
 
 USER runner
