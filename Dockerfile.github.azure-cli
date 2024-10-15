@@ -2,8 +2,8 @@ FROM ghcr.io/actions/actions-runner:2.320
 
 USER root
 
-# install curl, jq, zip and unzip
-RUN apt-get update && apt-get install -y curl jq zip unzip && \
+# install zip
+RUN apt-get update && apt-get install -y --no-install-recommends zip && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 

@@ -2,12 +2,9 @@ FROM ghcr.io/actions/actions-runner:2.320.0
 
 USER root
 
-# install curl, jq, zip, unzip and playwright dependencies
-RUN apt-get update && apt-get install -y \
-    curl \
-    jq \
+# install zip, and playwright dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
     zip \
-    unzip \
     xvfb \
     fonts-noto-color-emoji \
     fonts-unifont \
